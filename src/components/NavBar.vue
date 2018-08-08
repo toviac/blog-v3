@@ -1,8 +1,8 @@
 <!-- nav-bar -->
 <template>
+  <!-- :router="true" -->
   <el-menu
     class="nav-bar"
-    :router="true"
     :default-active="activeIndex"
     mode="horizontal"
     @select="handleSelect"
@@ -61,6 +61,8 @@ export default {
 </script>
 <style lang='scss' scoped>
 .nav-bar {
-  margin-top: calc(100% - 61px);
+  // margin-top: calc(100% - 61px);
+  padding: 0 calc(100% / 12);
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
 }
 </style>
