@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <home-cover></home-cover>
+    <home-cover :ifShow.sync="showCover"></home-cover>
     <el-collapse-transition>
-      <main-container v-show="showContainer"></main-container>
+      <main-container v-show="!showCover" @toggle-show="showCover = true"></main-container>
     </el-collapse-transition>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
   name: '',
   data() {
     return {
-      showContainer: true,
+      showCover: true,
     };
   },
   components: {
@@ -24,6 +24,7 @@ export default {
   },
   methods: {
   },
+  watch: {},
   mounted() {
   },
 };

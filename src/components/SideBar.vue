@@ -47,8 +47,10 @@ export default {
   },
   components: {
   },
+  computed: {},
   methods: {
     handleBtnClick(btn) {
+      this.$emit('toggle-show');
       console.log('btnClick: ', btn);
     },
   },
@@ -59,7 +61,8 @@ export default {
 
 <style lang="scss">
 .side-bar {
-  width: 100%;
+  position: fixed;
+  width: calc(100vw / 24 * 5);
   max-width: 400px;
   .avatar {
     max-width: 100%;

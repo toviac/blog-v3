@@ -26,20 +26,13 @@ export default {
       navList: [
         {
           index: 'first',
-          name: '首页',
-          route: {
-            path: '/',
-          },
-        },
-        {
-          index: 'second',
           name: 'Blogs',
           route: {
             path: '/',
           },
         },
         {
-          index: 'thrid',
+          index: 'second',
           name: '小练习',
           route: {
             path: '/',
@@ -61,6 +54,7 @@ export default {
 </script>
 <style lang='scss' scoped>
 .nav-bar {
+  z-index: 2;
   // margin-top: calc(100% - 61px);
   padding: 0 calc(100% / 12);
   box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
