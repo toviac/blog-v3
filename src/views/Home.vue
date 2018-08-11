@@ -1,15 +1,18 @@
 <template>
   <div class="home">
-    <!-- 背景图片 -->
-    <div class="home-background" :style="bgImgStyle"></div>
-    <!-- 灰色遮罩部分 -->
-    <el-collapse-transition>
-      <div v-show="showCover" class="home-cover" @mousewheel="onMouseWheel">
-          <el-button type="text" @click="onMouseWheel">
-            <i class="iconfont icon-arrowdown"></i>
-          </el-button>
-      </div>
-    </el-collapse-transition>
+    <!-- 不是首页时不显示头图 -->
+    <div v-if="showBgImg">
+      <!-- 背景图片 -->
+      <div class="home-background" :style="bgImgStyle"></div>
+      <!-- 灰色遮罩部分 -->
+      <el-collapse-transition>
+        <div v-show="showCover" class="home-cover" @mousewheel="onMouseWheel">
+            <el-button type="text" @click="onMouseWheel">
+              <i class="iconfont icon-arrowdown"></i>
+            </el-button>
+        </div>
+      </el-collapse-transition>
+    </div>
     <!-- 主页面 -->
     <el-collapse-transition>
       <main-container v-show="!showCover" @toggle-show="showCover = true"></main-container>
@@ -39,6 +42,11 @@ export default {
       if (!e.wheelDelta || e.wheelDelta < 0) {
         this.showCover = false;
       }
+    },
+  },
+  computed: {
+    showBgImg() {
+      return this.$route.path === '/';
     },
   },
   watch: {},
