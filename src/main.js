@@ -1,7 +1,9 @@
 import Vue from 'vue';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
-import highlightcode from './highlightcode';
+// import highlightcode from './highlightcode';
+import mavonEditor from 'mavon-editor';
+import 'mavon-editor/dist/css/index.css';
 import App from './App.vue';
 import router from './router';
 import store from './store';
@@ -9,7 +11,8 @@ import './registerServiceWorker';
 
 Vue.config.productionTip = false;
 
-Vue.component('h-code', highlightcode);
+// Vue.component('h-code', highlightcode);
+Vue.use(mavonEditor);
 Vue.use(ElementUI);
 
 new Vue({

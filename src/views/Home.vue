@@ -27,7 +27,7 @@ export default {
   name: 'Home',
   data() {
     return {
-      showCover: true,
+      showCover: false,
       bgImgStyle: {
         'background-image': 'url(69646886_p0.png)',
       },
@@ -50,7 +50,9 @@ export default {
     },
   },
   watch: {},
-  mounted() {
+  mounted() {},
+  created() {
+    this.showCover = this.$route.path === '/';
   },
 };
 </script>

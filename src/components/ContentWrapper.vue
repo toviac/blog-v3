@@ -1,25 +1,31 @@
 <!-- 主要内容 -->
 <template>
   <div class="content-wrapper">
-    <h-code>
-      function() {
-        console.log('hellow world');
-      }
-    </h-code>
+    <md-editor @change="change"></md-editor>
+    {{ value }}
   </div>
 </template>
 
 <script>
+import MdEditor from './MdEditor.vue';
+
 export default {
   name: 'ContentWrapper',
   data() {
     return {
+      value: '',
     };
   },
-  components: {},
+  components: {
+    MdEditor,
+  },
   computed: {},
   mounted() {},
-  methods: {},
+  methods: {
+    change(render) {
+      this.value = render;
+    },
+  },
 };
 
 </script>

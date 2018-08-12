@@ -42,17 +42,13 @@ export default {
       if (Array.isArray(slot)) {
         return slot.map((node) => {
           if (Array.isArray(node.children) && (node.children.length > 0)) {
-            console.log('node.children: ', node.children);
             return this.getSlotText(node.children);
           }
-          console.log('node.text: ', node.text);
           return node.text;
         }).join('');
       }
       return '';
     },
   },
-  mounted() {
-    console.log('slot: ', this.getSlotText(this.$slots.default));
-  },
+  mounted() {},
 };
