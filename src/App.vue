@@ -12,5 +12,15 @@
   -moz-osx-font-smoothing: grayscale;
   // text-align: center;
   color: #2c3e50;
+  pre > code {
+    border-radius: 4px;
+    font-family: 'Consolas';
+    // atom-one-dark
+    display: block;
+    overflow-x: auto;
+    padding: 0.5em;
+    color: #abb2bf;
+    background: #282c34;
+  }
 }
 </style>

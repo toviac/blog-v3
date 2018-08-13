@@ -1,16 +1,14 @@
 <!-- 主要内容 -->
 <template>
   <div class="content-wrapper">
-    <md-editor @change="change"></md-editor>
-    <div v-html="value"></div>
+    <md-editor></md-editor>
+    <div v-html="markdownHTML"></div>
   </div>
 </template>
 
 <script>
-// import marked from '@/utils/marked';
+import marked from '@/utils/marked';
 import MdEditor from '@/components/MdEditor.vue';
-import { mavonEditor } from 'mavon-editor';
-
 // 引入md
 import _20171121 from '@/sources/2017-11-21.md';
 
@@ -24,19 +22,13 @@ export default {
   components: {
     MdEditor,
   },
-  computed: {},
-  mounted() {
-    this.renderMarkdown(_20171121);
-  },
-  methods: {
-    change(render) {
-      this.value = render;
-    },
-    renderMarkdown(md) {
-      // mavonEditor.mixins[0].methods.codeStyleChange('atom-one-dark', true);
-      // mavonEditor.mixins[0].methods.$render(md, (res) => this.value = res);
+  computed: {
+    markdownHTML() {
+      return marked(_20171121);
     },
   },
+  mounted() {},
+  methods: {},
 };
 
 </script>
