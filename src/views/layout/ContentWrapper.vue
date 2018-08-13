@@ -1,7 +1,8 @@
 <!-- 主要内容 -->
 <template>
-  <div class="content-wrapper" v-html="value">
-    <!-- <md-editor @change="change"></md-editor> -->
+  <div class="content-wrapper">
+    <md-editor @change="change"></md-editor>
+    <div v-html="value"></div>
   </div>
 </template>
 
@@ -32,8 +33,8 @@ export default {
       this.value = render;
     },
     renderMarkdown(md) {
-      mavonEditor.mixins[0].methods.codeStyleChange('atom-one-dark', true);
-      mavonEditor.mixins[0].methods.$render(md, (res) => this.value = res);
+      // mavonEditor.mixins[0].methods.codeStyleChange('atom-one-dark', true);
+      // mavonEditor.mixins[0].methods.$render(md, (res) => this.value = res);
     },
   },
 };
