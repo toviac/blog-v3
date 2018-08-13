@@ -27,9 +27,9 @@
 </template>
 
 <script>
-import NavBar from '@/components/NavBar.vue';
-import SideBar from '@/components/SideBar.vue';
-import ContentWrapper from '@/components/ContentWrapper.vue';
+import NavBar from '@/views/layout/NavBar.vue';
+import SideBar from '@/views/layout/SideBar.vue';
+import ContentWrapper from '@/views/layout/ContentWrapper.vue';
 
 export default {
   name: 'MainContainer',
@@ -123,7 +123,7 @@ export default {
   }
   .scroll-to-top-btn {
     position: fixed;
-    bottom: 300px;
+    bottom: 20vh;
   }
 }
 </style>

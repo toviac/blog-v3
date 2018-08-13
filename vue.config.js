@@ -9,8 +9,17 @@ module.exports = {
   // https://vuejs.org/v2/guide/installation.html#Runtime-Compiler-vs-Runtime-only
   // compiler: false,
   // webpack配置
-  // see https://github.com/vuejs/vue-cli/blob/dev/docs/webpack.md
-  chainWebpack: () => {},
+  // see https://github.com/vuejs/vue-cli/blob/dev/docs/zh/guide/webpack.md
+  chainWebpack: (config) => {
+    // html-loader & markdown-loader
+    config.module
+      .rule('md')
+      .test(/\.md$/)
+      .use('markdown-loader')
+        .loader('html-loader')
+    //     .loader('markdown-loader')
+    //     .options({})
+  },
   configureWebpack: () => {},
   // vue-loader 配置项
   // https://vue-loader.vuejs.org/en/options.html

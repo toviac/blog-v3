@@ -1,13 +1,17 @@
 <!-- 主要内容 -->
 <template>
-  <div class="content-wrapper">
-    <md-editor @change="change"></md-editor>
-    {{ value }}
+  <div class="content-wrapper" v-html="value">
+    <!-- <md-editor @change="change"></md-editor> -->
   </div>
 </template>
 
 <script>
-import MdEditor from './MdEditor.vue';
+// import marked from '@/utils/marked';
+import MdEditor from '@/components/MdEditor.vue';
+import { mavonEditor } from 'mavon-editor';
+
+// 引入md
+import _20171121 from '@/sources/2017-11-21.md';
 
 export default {
   name: 'ContentWrapper',
@@ -20,10 +24,16 @@ export default {
     MdEditor,
   },
   computed: {},
-  mounted() {},
+  mounted() {
+    this.renderMarkdown(_20171121);
+  },
   methods: {
     change(render) {
       this.value = render;
+    },
+    renderMarkdown(md) {
+      mavonEditor.mixins[0].methods.codeStyleChange('atom-one-dark', true);
+      mavonEditor.mixins[0].methods.$render(md, (res) => this.value = res);
     },
   },
 };
