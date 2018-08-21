@@ -1,0 +1,247 @@
+{
+  "keys": "D:\\personalCodes\\blog\\server\\config\\config.default.js",
+  "session": {
+    "maxAge": "D:\\personalCodes\\blog\\server\\node_modules\\egg-session\\config\\config.default.js",
+    "key": "D:\\personalCodes\\blog\\server\\node_modules\\egg-session\\config\\config.default.js",
+    "httpOnly": "D:\\personalCodes\\blog\\server\\node_modules\\egg-session\\config\\config.default.js",
+    "encrypt": "D:\\personalCodes\\blog\\server\\node_modules\\egg-session\\config\\config.default.js"
+  },
+  "security": {
+    "domainWhiteList": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+    "protocolWhiteList": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+    "defaultMiddleware": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+    "csrf": {
+      "enable": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "useSession": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "ignoreJSON": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "cookieName": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "sessionName": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "headerName": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "bodyName": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "queryName": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xframe": {
+      "enable": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "hsts": {
+      "enable": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.local.js",
+      "maxAge": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "includeSubdomains": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "dta": {
+      "enable": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "methodnoallow": {
+      "enable": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "noopen": {
+      "enable": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "nosniff": {
+      "enable": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "referrerPolicy": {
+      "enable": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "xssProtection": {
+      "enable": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "value": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "csp": {
+      "enable": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "policy": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js"
+    },
+    "ssrf": {
+      "ipBlackList": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js",
+      "checkAddress": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js"
+    }
+  },
+  "helper": {
+    "shtml": "D:\\personalCodes\\blog\\server\\node_modules\\egg-security\\config\\config.default.js"
+  },
+  "jsonp": {
+    "limit": "D:\\personalCodes\\blog\\server\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "callback": "D:\\personalCodes\\blog\\server\\node_modules\\egg-jsonp\\config\\config.default.js",
+    "csrf": "D:\\personalCodes\\blog\\server\\node_modules\\egg-jsonp\\config\\config.default.js"
+  },
+  "onerror": {
+    "errorPageUrl": "D:\\personalCodes\\blog\\server\\node_modules\\egg-onerror\\config\\config.default.js",
+    "appErrorFilter": "D:\\personalCodes\\blog\\server\\node_modules\\egg-onerror\\config\\config.default.js",
+    "templatePath": "D:\\personalCodes\\blog\\server\\node_modules\\egg-onerror\\config\\config.default.js"
+  },
+  "i18n": {
+    "defaultLocale": "D:\\personalCodes\\blog\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "dirs": "D:\\personalCodes\\blog\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "queryField": "D:\\personalCodes\\blog\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieField": "D:\\personalCodes\\blog\\server\\node_modules\\egg-i18n\\config\\config.default.js",
+    "cookieMaxAge": "D:\\personalCodes\\blog\\server\\node_modules\\egg-i18n\\config\\config.default.js"
+  },
+  "watcher": {
+    "type": "D:\\personalCodes\\blog\\server\\node_modules\\egg-watcher\\config\\config.local.js",
+    "eventSources": {
+      "default": "D:\\personalCodes\\blog\\server\\node_modules\\egg-watcher\\config\\config.default.js",
+      "development": "D:\\personalCodes\\blog\\server\\node_modules\\egg-watcher\\config\\config.default.js"
+    }
+  },
+  "multipart": {
+    "autoFields": "D:\\personalCodes\\blog\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "defaultCharset": "D:\\personalCodes\\blog\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldNameSize": "D:\\personalCodes\\blog\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fieldSize": "D:\\personalCodes\\blog\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fields": "D:\\personalCodes\\blog\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileSize": "D:\\personalCodes\\blog\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "files": "D:\\personalCodes\\blog\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "fileExtensions": "D:\\personalCodes\\blog\\server\\node_modules\\egg-multipart\\config\\config.default.js",
+    "whitelist": "D:\\personalCodes\\blog\\server\\node_modules\\egg-multipart\\config\\config.default.js"
+  },
+  "development": {
+    "watchDirs": "D:\\personalCodes\\blog\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "ignoreDirs": "D:\\personalCodes\\blog\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "fastReady": "D:\\personalCodes\\blog\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "reloadOnDebug": "D:\\personalCodes\\blog\\server\\node_modules\\egg-development\\config\\config.default.js",
+    "overrideDefault": "D:\\personalCodes\\blog\\server\\node_modules\\egg-development\\config\\config.default.js"
+  },
+  "customLogger": {
+    "scheduleLogger": {
+      "consoleLevel": "D:\\personalCodes\\blog\\server\\node_modules\\egg-schedule\\config\\config.default.js",
+      "file": "D:\\personalCodes\\blog\\server\\node_modules\\egg-schedule\\config\\config.default.js"
+    }
+  },
+  "logrotator": {
+    "filesRotateByHour": "D:\\personalCodes\\blog\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "hourDelimiter": "D:\\personalCodes\\blog\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "filesRotateBySize": "D:\\personalCodes\\blog\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFileSize": "D:\\personalCodes\\blog\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxFiles": "D:\\personalCodes\\blog\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "rotateDuration": "D:\\personalCodes\\blog\\server\\node_modules\\egg-logrotator\\config\\config.default.js",
+    "maxDays": "D:\\personalCodes\\blog\\server\\node_modules\\egg-logrotator\\config\\config.default.js"
+  },
+  "static": {
+    "prefix": "D:\\personalCodes\\blog\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "dir": "D:\\personalCodes\\blog\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "dynamic": "D:\\personalCodes\\blog\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "preload": "D:\\personalCodes\\blog\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "buffer": "D:\\personalCodes\\blog\\server\\node_modules\\egg-static\\config\\config.default.js",
+    "maxFiles": "D:\\personalCodes\\blog\\server\\node_modules\\egg-static\\config\\config.default.js"
+  },
+  "view": {
+    "root": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view\\config\\config.default.js",
+    "defaultViewEngine": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view\\config\\config.default.js",
+    "mapping": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view\\config\\config.default.js"
+  },
+  "env": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+  "name": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+  "proxy": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+  "protocolHeaders": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+  "ipHeaders": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+  "hostHeaders": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+  "pkg": {
+    "name": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "version": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "description": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "main": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "scripts": {
+      "dev": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+      "test": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "author": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "license": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "dependencies": {
+      "egg": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "devDependencies": {
+      "egg-bin": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "baseDir": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+  "HOME": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+  "rundir": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+  "dump": {
+    "ignore": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "confusedConfigurations": {
+    "bodyparser": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "notFound": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "sitefile": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "middlewares": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "httpClient": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "notfound": {
+    "pageUrl": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "siteFile": {
+    "/favicon.ico": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "bodyParser": {
+    "enable": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "formLimit": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "jsonLimit": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "strict": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "queryString": {
+      "arrayLimit": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+      "depth": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+      "parameterLimit": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "logger": {
+    "dir": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "encoding": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "env": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "level": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "consoleLevel": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "disableConsoleAfterReady": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "outputJSON": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "buffer": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "appLogName": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "coreLogName": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "agentLogName": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "errorLogName": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "coreLogger": {
+      "consoleLevel": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.local.js"
+    },
+    "allowDebugAtProd": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "httpclient": {
+    "enableDNSCache": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxLength": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "dnsCacheMaxAge": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "request": {
+      "timeout": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpAgent": {
+      "keepAlive": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketKeepAliveTimeout": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+    },
+    "httpsAgent": {
+      "keepAlive": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+      "freeSocketKeepAliveTimeout": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxSockets": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+      "maxFreeSockets": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "meta": {
+    "enable": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "logging": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "coreMiddleware": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+  "workerStartTimeout": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+  "cluster": {
+    "listen": {
+      "path": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+      "port": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+      "hostname": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+    }
+  },
+  "clusterClient": {
+    "maxWaitTime": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+    "responseTimeout": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+  },
+  "onClientError": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+}
