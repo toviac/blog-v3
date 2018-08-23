@@ -134,8 +134,17 @@
       "root": "D:\\personalCodes\\blog\\server\\app\\view",
       "cache": false,
       "defaultExtension": ".html",
-      "defaultViewEngine": "",
-      "mapping": {}
+      "defaultViewEngine": "nunjucks",
+      "mapping": {
+        ".tpl": "nunjucks"
+      }
+    },
+    "nunjucks": {
+      "autoescape": true,
+      "throwOnUndefined": false,
+      "trimBlocks": false,
+      "lstripBlocks": false,
+      "cache": false
     },
     "env": "local",
     "name": "egg-server",
@@ -156,7 +165,8 @@
       "author": "victor",
       "license": "ISC",
       "dependencies": {
-        "egg": "^2.10.0"
+        "egg": "^2.10.0",
+        "egg-view-nunjucks": "^2.2.0"
       },
       "devDependencies": {
         "egg-bin": "^4.8.1"
@@ -404,6 +414,20 @@
       "from": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\plugin.js",
       "path": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view",
       "version": "2.1.0"
+    },
+    "nunjucks": {
+      "enable": true,
+      "package": "egg-view-nunjucks",
+      "name": "nunjucks",
+      "dependencies": [
+        "security",
+        "view"
+      ],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "D:\\personalCodes\\blog\\server\\config\\plugin.js",
+      "path": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view-nunjucks",
+      "version": "2.2.0"
     }
   }
 }

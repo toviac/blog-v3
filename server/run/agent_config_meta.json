@@ -1,5 +1,14 @@
 {
   "keys": "D:\\personalCodes\\blog\\server\\config\\config.default.js",
+  "view": {
+    "defaultViewEngine": "D:\\personalCodes\\blog\\server\\config\\config.default.js",
+    "mapping": {
+      ".tpl": "D:\\personalCodes\\blog\\server\\config\\config.default.js"
+    },
+    "root": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view\\config\\config.default.js",
+    "cache": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view\\config\\config.local.js",
+    "defaultExtension": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view\\config\\config.default.js"
+  },
   "session": {
     "maxAge": "D:\\personalCodes\\blog\\server\\node_modules\\egg-session\\config\\config.default.js",
     "key": "D:\\personalCodes\\blog\\server\\node_modules\\egg-session\\config\\config.default.js",
@@ -126,12 +135,12 @@
     "buffer": "D:\\personalCodes\\blog\\server\\node_modules\\egg-static\\config\\config.default.js",
     "maxFiles": "D:\\personalCodes\\blog\\server\\node_modules\\egg-static\\config\\config.default.js"
   },
-  "view": {
-    "root": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view\\config\\config.default.js",
-    "cache": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view\\config\\config.local.js",
-    "defaultExtension": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view\\config\\config.default.js",
-    "defaultViewEngine": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view\\config\\config.default.js",
-    "mapping": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view\\config\\config.default.js"
+  "nunjucks": {
+    "autoescape": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "throwOnUndefined": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "trimBlocks": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "lstripBlocks": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view-nunjucks\\config\\config.default.js",
+    "cache": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view-nunjucks\\config\\config.local.js"
   },
   "env": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
   "name": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
@@ -151,7 +160,8 @@
     "author": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
     "license": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
     "dependencies": {
-      "egg": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
+      "egg": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js",
+      "egg-view-nunjucks": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"
     },
     "devDependencies": {
       "egg-bin": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\config.default.js"

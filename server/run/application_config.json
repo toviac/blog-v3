@@ -102,6 +102,7 @@
         "D:\\personalCodes\\blog\\server\\node_modules\\egg-logrotator\\config\\locales",
         "D:\\personalCodes\\blog\\server\\node_modules\\egg-static\\config\\locales",
         "D:\\personalCodes\\blog\\server\\node_modules\\egg-view\\config\\locales",
+        "D:\\personalCodes\\blog\\server\\node_modules\\egg-view-nunjucks\\config\\locales",
         "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\locales",
         "D:\\personalCodes\\blog\\server\\config\\locales"
       ],
@@ -160,11 +161,22 @@
       "files": "<LRU>"
     },
     "view": {
-      "root": "D:\\personalCodes\\blog\\server\\app\\view",
+      "root": [
+        "D:\\personalCodes\\blog\\server\\app\\view"
+      ],
       "cache": false,
       "defaultExtension": ".html",
-      "defaultViewEngine": "",
-      "mapping": {}
+      "defaultViewEngine": "nunjucks",
+      "mapping": {
+        ".tpl": "nunjucks"
+      }
+    },
+    "nunjucks": {
+      "autoescape": true,
+      "throwOnUndefined": false,
+      "trimBlocks": false,
+      "lstripBlocks": false,
+      "cache": false
     },
     "env": "local",
     "name": "egg-server",
@@ -185,7 +197,8 @@
       "author": "victor",
       "license": "ISC",
       "dependencies": {
-        "egg": "^2.10.0"
+        "egg": "^2.10.0",
+        "egg-view-nunjucks": "^2.2.0"
       },
       "devDependencies": {
         "egg-bin": "^4.8.1"
@@ -291,6 +304,10 @@
       "responseTimeout": 60000
     },
     "onClientError": null,
+    "news": {
+      "pageSize": 5,
+      "serverUrl": "https://hacker-news.firebaseio.com/v0"
+    },
     "coreMiddlewares": "~config~coreMiddleware",
     "appMiddlewares": [],
     "appMiddleware": "~config~appMiddlewares",
@@ -451,6 +468,20 @@
       "from": "D:\\personalCodes\\blog\\server\\node_modules\\egg\\config\\plugin.js",
       "path": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view",
       "version": "2.1.0"
+    },
+    "nunjucks": {
+      "enable": true,
+      "package": "egg-view-nunjucks",
+      "name": "nunjucks",
+      "dependencies": [
+        "security",
+        "view"
+      ],
+      "optionalDependencies": [],
+      "env": [],
+      "from": "D:\\personalCodes\\blog\\server\\config\\plugin.js",
+      "path": "D:\\personalCodes\\blog\\server\\node_modules\\egg-view-nunjucks",
+      "version": "2.2.0"
     }
   }
 }
