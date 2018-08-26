@@ -6,10 +6,8 @@ class FileService extends Service {
   async list() {
     // read config
     const { filePath } = this.config.files;
-    console.log('filePath: ', filePath);
-    const find = await fs.readdirSync(filePath);
-    console.log('find: ', find);
-    return find;
+    const files = await fs.readdirSync(filePath);
+    return files;
   }
 }
 
