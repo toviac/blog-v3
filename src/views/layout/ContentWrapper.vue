@@ -14,7 +14,7 @@ import Sources from '@/sources';
 
 export default {
   name: 'ContentWrapper',
-  props : {
+  props: {
     mdTitle: {
       type: String,
       default: '',
