@@ -7,10 +7,11 @@
 </template>
 
 <script>
-import marked from '@/utils/marked';
+// import marked from '@/utils/marked';
 import MdEditor from '@/components/MdEditor.vue';
 // 引入md
-import Sources from '@/sources';
+// import Sources from '@/sources';
+// import http from '@/common/http';
 
 export default {
   name: 'ContentWrapper',
@@ -21,15 +22,17 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      markdownHTML: '',
+    };
   },
   components: {
     MdEditor,
   },
   computed: {
-    markdownHTML() {
-      return marked(Sources._20171206);
-    },
+    // markdowns() {
+    //   return marked('str');
+    // },
   },
   mounted() {},
   methods: {},

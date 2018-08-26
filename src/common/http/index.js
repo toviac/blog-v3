@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const responseHandler = response => new Promise((resolve, reject) => {
-  const { data } = response.data;
+  const { data } = response;
   if (data.resultCode === '100') {
     resolve(data);
   } else {

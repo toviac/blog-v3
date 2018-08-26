@@ -54,7 +54,8 @@ module.exports = {
     port: 4321,
     https: false,
     hotOnly: false,
-    proxy: null, // 设置代理
+    // 设置代理, 监听后台端口
+    proxy: 'http://localhost:7001',
     before: app => {}
   },
   // 第三方插件配置

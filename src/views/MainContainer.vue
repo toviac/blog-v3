@@ -6,7 +6,13 @@
      class="scroll-bar" wrap-style="overflow-x: hidden;">
       <el-row :gutter="20">
         <el-col :span="15">
-            <content-wrapper></content-wrapper>
+          <article-list-item
+            v-if="showFileList"
+            v-for="item in fileList"
+            :key="item.index"
+            :item="item">
+          </article-list-item>
+          <content-wrapper v-else></content-wrapper>
         </el-col>
         <el-col :span="5" id="side-bar-outer">
           <side-bar @toggle-show="handleToggleShow"></side-bar>
@@ -30,6 +36,8 @@
 import NavBar from '@/views/layout/NavBar.vue';
 import SideBar from '@/views/layout/SideBar.vue';
 import ContentWrapper from '@/views/layout/ContentWrapper.vue';
+import ArticleListItem from '@/components/ArticleListItem.vue';
+import http from '@/common/http';
 
 export default {
   name: 'MainContainer',
@@ -38,14 +46,24 @@ export default {
       showScrollTop: false,
       // 鼠标滚轮向上滚动的次数
       wheelTop: 0,
+      // 文章列表
+      fileList: [],
     };
   },
   components: {
     NavBar,
     SideBar,
     ContentWrapper,
+    ArticleListItem,
   },
-  computed: {},
+  computed: {
+    showFileList() {
+      if (this.$route.path === '/') {
+        return true;
+      }
+      return false;
+    },
+  },
   watch: {
     wheelTop(newVal) {
       if (newVal > 4) {
@@ -61,6 +79,7 @@ export default {
       const targetScroll = document.getElementById('scroll-box').children[0];
       targetScroll.addEventListener('scroll', this.handleScroll);
     });
+    this.getList();
   },
   methods: {
     // container 鼠标滚动事件
@@ -97,6 +116,15 @@ export default {
           cancelAnimationFrame(timer);
         }
       });
+    },
+    // 获取服务器文章md列表
+    getList() {
+      const url = '/filelist';
+      http.get(url, {})
+        .then((data) => {
+          this.fileList = data.list.map(file => ({ title: file }));
+        })
+        .catch();
     },
   },
 };

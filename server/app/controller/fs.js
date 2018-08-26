@@ -7,7 +7,7 @@ class FsController extends Controller {
     // await this.ctx.render('news/list.tpl', { list: fileList });
     this.ctx.body = {
       list: fileList,
-      resultCode: 200,
+      resultCode: '100',
     };
   }
 }
