@@ -5,11 +5,11 @@ const fs = require('fs');
 class FileService extends Service {
   async list() {
     // read config
-    const filePath = this.config.files;
+    const { filePath } = this.config.files;
     console.log('filePath: ', filePath);
     const find = await fs.readdirSync(filePath);
-    console.log('find: ', find());
-    return filePath;
+    console.log('find: ', find);
+    return find;
   }
 }
 

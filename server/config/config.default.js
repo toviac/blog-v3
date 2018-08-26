@@ -13,5 +13,5 @@ exports.news = {
 };
 
 exports.files = {
-  filePath: '/sources',
+  filePath: './sources',
 };
