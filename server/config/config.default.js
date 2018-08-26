@@ -1,4 +1,4 @@
-exports.keys  = '334433';
+exports.keys = '334433';
 // 添加view配置
 exports.view = {
   defaultViewEngine: 'nunjucks',
