@@ -7,12 +7,12 @@
       <el-row :gutter="20">
         <el-col :span="15">
           <article-list-item
-            v-if="showFileList"
+            v-show="showFileList"
             v-for="item in fileList"
             :key="item.index"
             :item="item">
           </article-list-item>
-          <content-wrapper v-else></content-wrapper>
+          <content-wrapper v-show="!showFileList"></content-wrapper>
         </el-col>
         <el-col :span="5" id="side-bar-outer">
           <side-bar @toggle-show="handleToggleShow"></side-bar>

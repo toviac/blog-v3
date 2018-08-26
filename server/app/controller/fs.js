@@ -10,6 +10,15 @@ class FsController extends Controller {
       resultCode: '100',
     };
   }
+  async content() {
+    const { ctx } = this;
+    const fName = ctx.query.fileName;
+    const fileContent = await ctx.service.files.content(fName);
+    this.ctx.body = {
+      content: fileContent,
+      resultCode: '100',
+    };
+  }
 }
 
 module.exports = FsController;

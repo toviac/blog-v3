@@ -7,11 +7,9 @@
 </template>
 
 <script>
-// import marked from '@/utils/marked';
+import marked from '@/utils/marked';
 import MdEditor from '@/components/MdEditor.vue';
-// 引入md
-// import Sources from '@/sources';
-// import http from '@/common/http';
+import http from '@/common/http';
 
 export default {
   name: 'ContentWrapper',
@@ -23,19 +21,36 @@ export default {
   },
   data() {
     return {
-      markdownHTML: '',
+      mdContent: '',
     };
   },
   components: {
     MdEditor,
   },
   computed: {
-    // markdowns() {
-    //   return marked('str');
-    // },
+    markdownHTML() {
+      return marked(this.mdContent);
+    },
   },
-  mounted() {},
-  methods: {},
+  watch: {
+    $route(to, from) {
+      this.queryContent();
+    }
+  },
+  mounted() {
+    this.queryContent();
+  },
+  methods: {
+    queryContent() {
+      const url = '/file'
+      const fName = this.$route.params.fileName;
+      http.get(url, { fileName: fName })
+        .then(data => {
+          this.mdContent = data.content;
+        })
+        .catch();
+    },
+  },
 };
 
 </script>

@@ -12,6 +12,10 @@ export default new Router({
       component: Home,
     },
     {
+      path: '/:fileName',
+      component: Home,
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting
