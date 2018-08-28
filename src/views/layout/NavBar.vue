@@ -22,17 +22,17 @@
 export default {
   data() {
     return {
-      activeIndex: 'first',
+      activeIndex: 'blog',
       navList: [
         {
-          index: 'first',
+          index: 'blog',
           name: 'Blogs',
           route: {
             path: '/',
           },
         },
         {
-          index: 'second',
+          index: 'practice',
           name: '小练习',
           route: {
             path: '/',
@@ -47,6 +47,7 @@ export default {
   methods: {
     handleSelect(key) {
       console.log('key: ', key);
+      this.$emit('select', key);
     },
   },
 };

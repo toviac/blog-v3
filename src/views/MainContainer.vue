@@ -1,18 +1,24 @@
 <!-- index -->
 <template>
   <div class="main-container" @mousewheel="handleContainerMouseWheel">
-    <nav-bar></nav-bar>
+    <nav-bar @select="activeTab = $event"></nav-bar>
     <el-scrollbar id="scroll-box" ref="scrollbar"
      class="scroll-bar" wrap-style="overflow-x: hidden;">
       <el-row :gutter="20">
         <el-col :span="15">
-          <article-list-item
-            v-show="showFileList"
-            v-for="item in fileList"
-            :key="item.index"
-            :item="item">
-          </article-list-item>
-          <content-wrapper v-show="!showFileList"></content-wrapper>
+          <transition name="slide" mode="out-in">
+            <div class="list-item" v-show="showFileList" key="list">
+              <article-list-item
+                v-for="item in fileList"
+                :key="item.index"
+                :item="item">
+              </article-list-item>
+            </div>
+          </transition>
+          <transition name="slide" mode="out-in">
+            <router-view key="view">
+            </router-view>
+          </transition>
         </el-col>
         <el-col :span="5" id="side-bar-outer">
           <side-bar @toggle-show="handleToggleShow"></side-bar>
@@ -43,6 +49,8 @@ export default {
   name: 'MainContainer',
   data() {
     return {
+      // 当前导航标签
+      activeTab: 'blog',
       showScrollTop: false,
       // 鼠标滚轮向上滚动的次数
       wheelTop: 0,
@@ -58,13 +66,20 @@ export default {
   },
   computed: {
     showFileList() {
-      if (this.$route.path === '/') {
-        return true;
-      }
-      return false;
+      return this.$route.path === '/' && this.activeTab === 'blog';
+    //   if (this.$route.path === '/' && this.activeTab === 'blog') {
+    //     return true;
+    //   }
+    //   console.log('false');
+    //   return false;
     },
   },
   watch: {
+    activeTab(newVal, oldVal) {
+      if (newVal === 'blog') {
+        this.getList();
+      }
+    },
     wheelTop(newVal) {
       if (newVal > 4) {
         this.$emit('toggle-show');
@@ -152,6 +167,20 @@ export default {
   .scroll-to-top-btn {
     position: fixed;
     bottom: 20vh;
+  }
+  /* 可以设置不同的进入和离开动画 */
+  /* 设置持续时间和动画函数 */
+  .slide-leave-active,
+  .slide-enter-active {
+    transition: all 0.5s;
+  }
+  .slide-enter {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  .slide-leave-to {
+    opacity: 0;
+    transform: translateX(20px);
   }
 }
 </style>
