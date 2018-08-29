@@ -5,6 +5,7 @@
     class="nav-bar"
     :default-active="activeIndex"
     mode="horizontal"
+    :router="true"
     @select="handleSelect"
   >
     <el-menu-item
@@ -46,7 +47,7 @@ export default {
   mounted() {},
   methods: {
     handleSelect(key) {
-      console.log('key: ', key);
+      this.activeIndex = key;
       this.$emit('select', key);
     },
   },

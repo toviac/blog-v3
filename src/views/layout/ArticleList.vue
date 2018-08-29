@@ -4,13 +4,12 @@
       class="article-list-item"
       v-for="item in list"
       :key="item.index">
-      {{ item.title }}
+      <div class="title" @click="titleClick(item)">{{ item.title }}</div>
     </div>
   </div>
 </template>
 
 <script>
-import http from '@/common/http';
 
 export default {
   name: 'ArticleList',
@@ -23,26 +22,16 @@ export default {
     },
   },
   data () {
-    return {
-      fileList: [],
-    };
+    return {};
   },
   components: {
   },
   methods: {
-    // 获取服务器文章md列表
-    getList() {
-      const url = '/filelist';
-      http.get(url, {})
-        .then((data) => {
-          this.fileList = data.list.map(file => ({ title: file }));
-        })
-        .catch();
-    },
+    titleClick(item) {
+      this.$emit('title-click', item);
+    }
   },
-  mounted() {
-    // this.getList();
-  }
+  mounted() {},
 };
 </script>
 
@@ -56,10 +45,18 @@ export default {
   .article-list-item {
     height: 150px;
     margin-top: 10px;
-    padding: 10px;
+    padding: 20px;
     border-radius: 4px;
     background-color: #ffffff;
     box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    .title {
+      color: #409EFF;
+      font-size: 20px;
+      cursor: pointer;
+      &:hover {
+        color: #66b1ff;
+      }
+    }
   }
 }
 </style>

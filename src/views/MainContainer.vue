@@ -10,14 +10,14 @@
             <!-- 同样元素切换需要添加key才会有动画 -->
             <div class="list-item" v-if="showBlog" key="blog">
               <transition name="slide" mode="out-in">
-                <article-list v-if="showFileList" :list="fileList">
+                <article-list v-if="showFileList" :list="fileList" @title-click="handleTitleClick">
                 </article-list>
                 <router-view v-else key="view">
                 </router-view>
               </transition>
             </div>
             <div class="list-item" v-else key="practice">
-              <article-list :list="fileList">
+              <article-list :list="fileList" @title-click="handleTitleClick">
               </article-list>
             </div>
           </transition>
@@ -140,6 +140,9 @@ export default {
           this.fileList = data.list.map(file => ({ title: file }));
         })
         .catch();
+    },
+    handleTitleClick(item) {
+      this.$router.push(`${this.activeTab}/${item.title}`);
     },
   },
 };
