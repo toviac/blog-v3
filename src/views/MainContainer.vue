@@ -7,17 +7,19 @@
       <el-row :gutter="20">
         <el-col :span="15">
           <transition name="slide" mode="out-in">
-            <div class="list-item" v-show="showFileList" key="list">
-              <article-list-item
-                v-for="item in fileList"
-                :key="item.index"
-                :item="item">
-              </article-list-item>
+            <!-- 同样元素切换需要添加key才会有动画 -->
+            <div class="list-item" v-if="showBlog" key="blog">
+              <transition name="slide" mode="out-in">
+                <article-list v-if="showFileList" :list="fileList">
+                </article-list>
+                <router-view v-else key="view">
+                </router-view>
+              </transition>
             </div>
-          </transition>
-          <transition name="slide" mode="out-in">
-            <router-view key="view">
-            </router-view>
+            <div class="list-item" v-else key="practice">
+              <article-list :list="fileList">
+              </article-list>
+            </div>
           </transition>
         </el-col>
         <el-col :span="5" id="side-bar-outer">
@@ -42,7 +44,7 @@
 import NavBar from '@/views/layout/NavBar.vue';
 import SideBar from '@/views/layout/SideBar.vue';
 import ContentWrapper from '@/views/layout/ContentWrapper.vue';
-import ArticleListItem from '@/components/ArticleListItem.vue';
+import ArticleList from '@/views/layout/ArticleList.vue';
 import http from '@/common/http';
 
 export default {
@@ -62,17 +64,15 @@ export default {
     NavBar,
     SideBar,
     ContentWrapper,
-    ArticleListItem,
+    ArticleList,
   },
   computed: {
-    showFileList() {
-      return this.$route.path === '/' && this.activeTab === 'blog';
-    //   if (this.$route.path === '/' && this.activeTab === 'blog') {
-    //     return true;
-    //   }
-    //   console.log('false');
-    //   return false;
+    showBlog() {
+      return this.activeTab === 'blog';
     },
+    showFileList() {
+      return this.$route.path === '/';
+    }
   },
   watch: {
     activeTab(newVal, oldVal) {

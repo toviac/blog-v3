@@ -1,26 +1,33 @@
 <template>
   <div class="article-list">
-    <article-list-item
-      v-for="item in fileList"
-      :key="item.index"
-      :item="item">
-    </article-list-item>
+    <div
+      class="article-list-item"
+      v-for="item in list"
+      :key="item.index">
+      {{ item.title }}
+    </div>
   </div>
 </template>
 
 <script>
-import ArticleListItem from '@/components/ArticleListItem.vue';
 import http from '@/common/http';
 
 export default {
   name: 'ArticleList',
+  props: {
+    list: {
+      type: Array,
+      default() {
+        return [];
+      },
+    },
+  },
   data () {
     return {
       fileList: [],
     };
   },
   components: {
-    ArticleListItem,
   },
   methods: {
     // 获取服务器文章md列表
@@ -34,7 +41,7 @@ export default {
     },
   },
   mounted() {
-    this.getList();
+    // this.getList();
   }
 };
 </script>
@@ -46,5 +53,13 @@ export default {
   margin-top: -10px;
   margin-bottom: 10px;
   min-height: calc(100vh - 81px);
+  .article-list-item {
+    height: 150px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+  }
 }
 </style>
