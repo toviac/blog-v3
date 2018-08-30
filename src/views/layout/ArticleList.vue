@@ -5,6 +5,7 @@
       v-for="item in list"
       :key="item.index">
       <div class="title" @click="titleClick(item)">{{ item.title }}</div>
+      <div class="create-date">{{ item.createDate }}</div>
     </div>
   </div>
 </template>
@@ -43,19 +44,27 @@ export default {
   margin-bottom: 10px;
   min-height: calc(100vh - 81px);
   .article-list-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 150px;
     margin-top: 10px;
     padding: 20px;
     border-radius: 4px;
     background-color: #ffffff;
     box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
-    .title {
+    .title,
+    .create-date {
       color: #409EFF;
       font-size: 20px;
       cursor: pointer;
       &:hover {
         color: #66b1ff;
       }
+    }
+    .create-date {
+      padding-right: 20px;
+      text-align: right;
     }
   }
 }

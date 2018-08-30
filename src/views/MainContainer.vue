@@ -137,12 +137,12 @@ export default {
       const url = '/filelist';
       http.get(url, {})
         .then((data) => {
-          this.fileList = data.list.map(file => ({ title: file }));
+          this.fileList = data.list;
         })
         .catch();
     },
     handleTitleClick(item) {
-      this.$router.push(`${this.activeTab}/${item.title}`);
+      this.$router.push(`${this.activeTab}/${item.createDate}.md`);
     },
   },
 };
