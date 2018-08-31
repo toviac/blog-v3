@@ -32,8 +32,6 @@ export default {
   methods: {
     handleChange(value, render) {
       // value为markdown内容, render为渲染后html
-      console.log('value: ', value);
-      console.log('render: ', render);
       this.$emit('input', value);
       this.$emit('change', render);
     },

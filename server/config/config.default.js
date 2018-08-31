@@ -14,6 +14,4 @@ exports.news = {
 
 exports.files = {
   filePath: './sources',
-  // 获取标题正则
-  getTitleReg: /^#\s(.*)/g,
 };

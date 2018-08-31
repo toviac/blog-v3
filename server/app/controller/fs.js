@@ -1,9 +1,10 @@
 const { Controller } = require('egg');
+// 获取标题正则
+const getTitleReg = /^#\s(.*)/g;
 
 class FsController extends Controller {
   async list() {
     const { ctx } = this;
-    const { getTitleReg } = this.config.files;
     const fileList = await ctx.service.files.list();
     // map里有异步, 没有promise.all会输出一个pending的promise
     const titleList = await Promise.all(fileList.map(async (file) => {
@@ -22,11 +23,8 @@ class FsController extends Controller {
   }
   async content() {
     const { ctx } = this;
-    const { getTitleReg } = this.config.files;
     const fName = ctx.query.fileName;
     const fileContent = await ctx.service.files.content(fName);
-    const fileTitle = fileContent.match(getTitleReg);
-    console.log('fileTitle: ', fileTitle);
     this.ctx.body = {
       content: fileContent,
       resultCode: '100',
