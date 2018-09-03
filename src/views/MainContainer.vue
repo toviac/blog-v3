@@ -25,7 +25,7 @@
         <el-col :span="5" id="side-bar-outer">
           <side-bar @toggle-show="handleToggleShow"></side-bar>
           <!-- 滚动到顶部按钮 -->
-          <transition name="el-fade-in">
+          <transition name="el-fade-in-linear">
             <div
               class="el-button scroll-to-top-btn"
               v-show="showScrollTop"

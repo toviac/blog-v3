@@ -14,6 +14,11 @@
         {{ btn.name }}
       </el-button>
     </div>
+    <el-button-group>
+      <el-button plain icon="iconfont icon-github">Github</el-button>
+      <el-button plain icon="iconfont icon-qq">QQ</el-button>
+      <el-button plain icon="iconfont icon-mail">Mailto</el-button>
+    </el-button-group>
   </el-card>
 </template>
 
@@ -68,12 +73,19 @@ export default {
     max-width: 100%;
   }
   .anchor-btn-group {
+    margin-bottom: 5px;
     .el-button {
       width: 100%;
       margin-top: 5px;
       & + .el-button {
         margin-left: 0;
       }
+    }
+  }
+  .el-button-group {
+    display: flex;
+    .el-button {
+      flex-grow: 1;
     }
   }
 }
