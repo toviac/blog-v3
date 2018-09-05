@@ -69,6 +69,7 @@ export default {
   position: fixed;
   width: calc(100vw / 24 * 5);
   max-width: 400px;
+  min-width: 300px;
   .avatar {
     max-width: 100%;
   }

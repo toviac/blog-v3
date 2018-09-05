@@ -1,6 +1,7 @@
 <template>
   <div class="article-list">
-    <div
+    <el-card
+      shadow="hover"
       class="article-list-item"
       v-for="item in list"
       :key="item.index">
@@ -8,7 +9,7 @@
         <div class="title" @click="titleClick(item)">{{ item.title }}</div>
         <div class="create-date">{{ item.createDate }}</div>
       </div>
-    </div>
+    </el-card>
   </div>
 </template>
 
@@ -54,7 +55,7 @@ export default {
     padding: 20px;
     border-radius: 4px;
     background-color: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    // box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
     .header {
       display: flex;
       justify-content: space-between;

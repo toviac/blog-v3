@@ -22,5 +22,17 @@
     color: #abb2bf;
     background: #282c34;
   }
+  .el-button {
+    &:focus {
+      z-index: 0;
+      color: #409EFF;
+      border-color: #c6e2ff;
+    }
+    &:hover {
+      z-index: 1;
+      border-color: #409EFF;
+      color: #409EFF;
+    }
+  }
 }
 </style>

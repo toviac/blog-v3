@@ -22,7 +22,7 @@
             </div>
           </transition>
         </el-col>
-        <el-col :span="5" id="side-bar-outer">
+        <el-col :span="5" class="side-bar-outer">
           <side-bar @toggle-show="handleToggleShow"></side-bar>
           <!-- 滚动到顶部按钮 -->
           <transition name="el-fade-in-linear">
@@ -153,7 +153,7 @@ export default {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  background-color: #eeeeee;
+  background-color: #fff;
   .el-row {
     display: flex;
     justify-content: center;
