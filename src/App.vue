@@ -34,5 +34,16 @@
       color: #409EFF;
     }
   }
+  blockquote {
+    border-left: 3px solid #409EFF;
+    padding-left: 5px;
+    background-color: #eee;
+  }
+  code {
+    font-family: Helvetica;
+    color: #c7254e;
+    background-color: #f9f2f4;
+    border-radius: 4px;
+  }
 }
 </style>
