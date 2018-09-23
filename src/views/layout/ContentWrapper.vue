@@ -33,19 +33,19 @@ export default {
     },
   },
   watch: {
-    $route(to, from) {
+    $route() {
       this.queryContent();
-    }
+    },
   },
   mounted() {
     this.queryContent();
   },
   methods: {
     queryContent() {
-      const url = '/file'
+      const url = '/file';
       const fName = this.$route.params.fileName;
       http.get(url, { fileName: fName })
-        .then(data => {
+        .then((data) => {
           this.mdContent = data.content;
         })
         .catch();

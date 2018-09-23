@@ -72,10 +72,10 @@ export default {
     },
     showFileList() {
       return this.$route.path === '/';
-    }
+    },
   },
   watch: {
-    activeTab(newVal, oldVal) {
+    activeTab(newVal) {
       if (newVal === 'blog') {
         this.getList();
       }

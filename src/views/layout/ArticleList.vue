@@ -25,7 +25,7 @@ export default {
       },
     },
   },
-  data () {
+  data() {
     return {};
   },
   components: {
@@ -33,7 +33,7 @@ export default {
   methods: {
     titleClick(item) {
       this.$emit('title-click', item);
-    }
+    },
   },
   mounted() {},
 };

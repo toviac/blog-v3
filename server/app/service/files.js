@@ -14,7 +14,7 @@ class FileService extends Service {
     if (fs.existsSync(fname)) {
       console.log('--->');
     }
-    const file = await fs.readFileSync(join(filePath,fname), 'utf-8');
+    const file = await fs.readFileSync(join(filePath, fname), 'utf-8');
     return file;
   }
 }

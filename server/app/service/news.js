@@ -1,4 +1,4 @@
-const Service = require('egg').Service;
+const { Service } = require('egg');
 
 class NewService extends Service {
   async list(page = 1) {
@@ -9,18 +9,16 @@ class NewService extends Service {
       data: {
         orderBy: '"$key"',
         startAt: `"${pageSize * (page - 1)}"`,
-        endAt: `${pageSize * page - 1}`,
+        endAt: `${(pageSize * page) - 1}`,
       },
       dataType: 'json',
     });
 
     // parallel GET detail
-    const newsList = await Promise.all(
-      Object.keys(idList).map(key => {
-        const url = `${serverUrl}/item/${idList[key]}.json`;
-        return this.ctx.curl(url, { dataType: 'json' });
-      })
-    );
+    const newsList = await Promise.all(Object.keys(idList).map((key) => {
+      const url = `${serverUrl}/item/${idList[key]}.json`;
+      return this.ctx.curl(url, { dataType: 'json' });
+    }));
     return newsList.map(res => res.data);
   }
 }
