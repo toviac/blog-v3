@@ -1,12 +1,15 @@
 <template>
   <div class="article-list">
-    <div
+    <el-card
+      shadow="hover"
       class="article-list-item"
       v-for="item in list"
       :key="item.index">
-      <div class="title" @click="titleClick(item)">{{ item.title }}</div>
-      <div class="create-date">{{ item.createDate }}</div>
-    </div>
+      <div class="header">
+        <div class="title" @click="titleClick(item)">{{ item.title }}</div>
+        <div class="create-date">{{ item.createDate }}</div>
+      </div>
+    </el-card>
   </div>
 </template>
 
@@ -52,9 +55,13 @@ export default {
     padding: 20px;
     border-radius: 4px;
     background-color: #ffffff;
-    box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
-    .title,
-    .create-date {
+    // box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .title {
       color: #409EFF;
       font-size: 20px;
       cursor: pointer;
@@ -64,7 +71,10 @@ export default {
     }
     .create-date {
       padding-right: 20px;
-      text-align: right;
+      color: #409EFF;
+      &:hover {
+        color: #66b1ff;
+      }
     }
   }
 }

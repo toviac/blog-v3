@@ -20,6 +20,14 @@ module.exports = {
       .loader('html-loader')
     //     .loader('markdown-loader')
     //     .options({})
+
+    // html-webpack-plugin
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].favicon = 'public/favicon.png';
+        return args;
+      })
   },
   configureWebpack: () => {},
   // vue-loader 配置项
