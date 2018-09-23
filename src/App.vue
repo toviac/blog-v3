@@ -22,5 +22,10 @@
     color: #abb2bf;
     background: #282c34;
   }
+  blockquote {
+    background-color: #efefef;
+    padding: 5px 10px;
+    border-left: 3px solid #409EFF;
+  }
 }
 </style>
