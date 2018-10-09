@@ -5,7 +5,7 @@ import 'mavon-editor/dist/css/index.css';
 import mavonEditor from 'mavon-editor';
 // import highlightcode from './highlightcode';
 import App from './App.vue';
-import router from './router';
+import router from './routes';
 import store from './store';
 import './registerServiceWorker';
 
