@@ -23,7 +23,7 @@
           </transition>
         </el-col>
         <el-col :span="5" class="side-bar-outer">
-          <side-bar :sectionList="sectionList" :currentSection="currentSection" @toggle-show="handleToggleShow"></side-bar>
+          <side-bar :sectionList="sectionList" :currentSection="currentSection" @btn-click="sideBarClick"></side-bar>
           <!-- 滚动到顶部按钮 -->
           <transition name="el-fade-in-linear">
             <div
@@ -113,6 +113,7 @@ export default {
     this.getList();
   },
   methods: {
+    sideBarClick(btn) {},
     // viewport.js start
     // contentWrapper触发的ready事件
     articleReady() {

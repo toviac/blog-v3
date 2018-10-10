@@ -1,6 +1,7 @@
 <template>
   <el-card
     class="side-bar"
+    :style="{'max-height': maxHeight + 'px'}"
     :body-style="{ padding: '10px' }"
   >
     <img class="avatar" src="@/assets/img/Miku.gif" alt="">
@@ -57,10 +58,18 @@ export default {
   },
   components: {
   },
-  computed: {},
+  computed: {
+    maxHeight() {
+      if (this.$route.path === '/') {
+        return 450;
+      } else {
+        return 1500;
+      }
+    }
+  },
   methods: {
     handleBtnClick(btn) {
-      this.$emit('toggle-show');
+      this.$emit('btn-click');
       console.log('btnClick: ', btn);
     },
   },
