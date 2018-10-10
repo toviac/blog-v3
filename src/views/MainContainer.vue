@@ -12,7 +12,7 @@
               <transition name="slide" mode="out-in">
                 <article-list v-if="showFileList" :list="fileList" @title-click="handleTitleClick">
                 </article-list>
-                <router-view v-else key="view">
+                <router-view v-else key="view" ref="view" @articleReady="articleReady">
                 </router-view>
               </transition>
             </div>
@@ -23,7 +23,7 @@
           </transition>
         </el-col>
         <el-col :span="5" class="side-bar-outer">
-          <side-bar @toggle-show="handleToggleShow"></side-bar>
+          <side-bar :sectionList="sectionList" :currentSection="currentSection" @toggle-show="handleToggleShow"></side-bar>
           <!-- 滚动到顶部按钮 -->
           <transition name="el-fade-in-linear">
             <div
@@ -46,6 +46,7 @@ import SideBar from '@/views/layout/SideBar.vue';
 import ContentWrapper from '@/views/layout/ContentWrapper.vue';
 import ArticleList from '@/views/layout/ArticleList.vue';
 import http from '@/common/http';
+import viewport from '@/plugins/viewport.js';
 
 export default {
   name: 'MainContainer',
@@ -58,6 +59,12 @@ export default {
       wheelTop: 0,
       // 文章列表
       fileList: [],
+      // 文章是否加载完毕
+      isReady: false,
+      sectionNodeGroup: [],
+      currentSection: '',
+      sectionPercent: 0,
+      sectionList: []
     };
   },
   components: {
@@ -75,6 +82,11 @@ export default {
     },
   },
   watch: {
+    $route(to) {
+      if (to.path === '/') {
+        this.sectionList = null;
+      }
+    },
     activeTab(newVal) {
       if (newVal === 'blog') {
         this.getList();
@@ -91,12 +103,45 @@ export default {
   },
   mounted() {
     this.$nextTick(() => {
+      // 监听滚动事件
       const targetScroll = document.getElementById('scroll-box').children[0];
       targetScroll.addEventListener('scroll', this.handleScroll);
+      // viewport.js 设置滚动区域
+      let ele = document.getElementsByClassName('el-scrollbar__wrap')[0];
+      ele.classList.add('viewport');
     });
     this.getList();
   },
   methods: {
+    // viewport.js start
+    // contentWrapper触发的ready事件
+    articleReady() {
+      console.log('ready');
+      viewport.reset();
+      // sectionNodeGroup为HTMLCollection类型, 没有Array对应的一些遍历方法如map, forEach
+      this.sectionNodeGroup = document.getElementsByClassName('section');
+      this.sectionList = [];
+      for (let i = 0; i < this.sectionNodeGroup.length; i++) {
+        this.sectionList.push({
+          label: this.sectionNodeGroup[i].innerHTML,
+          percent: Math.max(0, Math.min(1, this.sectionNodeGroup[i].viewportTopLocation))
+        });
+        if (i === 3) {
+          console.log('topLocation: ', this.sectionNodeGroup[i].viewportTopLocation);
+        }
+      }
+      console.log('sectionList: ', this.sectionList);
+      this.$nextTick(() => {
+        this.isReady = true;
+      });
+    },
+    scrollListener() {
+      if (!this.sectionNodeGroup.length) return;
+      let myViewPort = document.getElementsByClassName('viewport')[0];
+      this.currentSection = myViewPort.currentSection.innerHTML;
+      this.sectionPercent = Math.max(0, Math.min(1, this.currentSection.viewportTopLocation));
+    },
+    // viewport.js end
     // container 鼠标滚动事件
     handleContainerMouseWheel(e) {
       if (this.$route.path !== '/') {
@@ -115,6 +160,10 @@ export default {
       // this.scrollToTop();
     },
     handleScroll() {
+      // 触发contentWrapper中的事件
+      if (this.articleReady) {
+        this.scrollListener();
+      }
       this.showScrollTop = this.$refs.scrollbar.$refs.wrap.scrollTop > 300;
     },
     scrollToTop() {
@@ -169,7 +218,7 @@ export default {
   }
   .scroll-to-top-btn {
     position: fixed;
-    bottom: 20vh;
+    bottom: 10vh;
   }
   /* 可以设置不同的进入和离开动画 */
   /* 设置持续时间和动画函数 */

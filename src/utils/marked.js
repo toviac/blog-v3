@@ -4,9 +4,22 @@ import 'highlight.js/styles/atom-one-dark.css';
 const marked = require('marked');
 const hljs = require('highlight.js');
 
-
+let mdRenderer = new marked.Renderer();
+// 标题序号
+let headerCount = 0;
+mdRenderer.heading = (text, level) => {
+  let renderedHTML = '';
+  if (level === 3) {
+    renderedHTML = `<h${level} id="section${headerCount}" class="section">${text}</h${level}>`;
+    headerCount++;
+  } else {
+    renderedHTML = `<h${level} class="header_${level}">${text}</h${level}>`;
+  }
+  return renderedHTML;
+}
 marked.setOptions({
-  renderer: new marked.Renderer(),
+  // renderer: new marked.Renderer(),
+  renderer: mdRenderer,
   // github样式markdown
   gfm: true,
   // github表格
@@ -23,7 +36,7 @@ marked.setOptions({
   // highlight.js
   highlight: (code, lang = 'javascript') => {
     if (lang && hljs.getLanguage(lang)) {
-      console.log('=> ', hljs.getLanguage(lang));
+      // console.log('=> ', hljs.getLanguage(lang));
       return hljs.highlight(lang, code, true).value;
     }
     return hljs.highlightAuto(code).value;

@@ -21,7 +21,7 @@ export default {
   },
   data() {
     return {
-      mdContent: '',
+      mdContent: ''
     };
   },
   components: {
@@ -47,6 +47,9 @@ export default {
       http.get(url, { fileName: fName })
         .then((data) => {
           this.mdContent = data.content;
+          this.$nextTick(() => {
+            this.$emit('articleReady');
+          });
         })
         .catch();
     },

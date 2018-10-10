@@ -7,11 +7,12 @@
     <div class="anchor-btn-group">
       <el-button
         plain
-        v-for="btn in btnList"
-        :key="btn.index"
-        @click="handleBtnClick(btn)"
+        v-for="section in sectionList"
+        :key="section.index"
+        :class="{ 'current-btn': section.label === currentSection }"
+        @click="handleBtnClick(section)"
       >
-        {{ btn.name }}
+        {{ section.label }}
       </el-button>
     </div>
     <el-button-group>
@@ -26,21 +27,25 @@
 export default {
   name: 'SideBar',
   props: {
-    btnList: {
+    currentSection: {
+      type: String,
+      default: ''
+    },
+    sectionList: {
       type: Array,
       default() {
         return [
           {
-            name: '导航按钮A',
+            label: '导航按钮A',
           },
           {
-            name: '导航按钮B',
+            label: '导航按钮B',
           },
           {
-            name: '导航按钮C',
+            label: '导航按钮C',
           },
           {
-            name: '导航按钮D',
+            label: '导航按钮D',
           },
         ];
       },
@@ -68,6 +73,7 @@ export default {
 .side-bar {
   position: fixed;
   width: calc(100vw / 24 * 5);
+  transition: height 1s;
   max-width: 400px;
   min-width: 300px;
   .avatar {
@@ -81,6 +87,11 @@ export default {
       & + .el-button {
         margin-left: 0;
       }
+    }
+    .current-btn {
+      border-color: #409EFF;
+      color: #409EFF;
+      background-color: #ecf5ff;
     }
   }
   .el-button-group {

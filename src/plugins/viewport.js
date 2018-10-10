@@ -6,8 +6,9 @@
  * @copyright 2015 asvd <heliosframework@gmail.com> 
  */
 
-
+/*
 (function (root, factory) {
+  console.log('exports: ', exports);
   if (typeof define === 'function' && define.amd) {
       define(['exports'], factory);
   } else if (typeof exports !== 'undefined') {
@@ -16,6 +17,8 @@
       factory((root.viewport = {}));
   }
 }(this, function (exports) {
+*/
+let viewport = () => {
   var entries = [];  // each entry contains a viewport with sections
   var ctx = 40;      // context to substract from the scroll targets
 
@@ -284,6 +287,16 @@
       _window[addEventListener]("load", reset, 0);
   }
 
-  exports.reset = reset;
-  exports.updateDimensions = updateDimensions;
-}));
+  // exports.reset = reset;
+  // exports.updateDimensions = updateDimensions;
+  return {
+    reset: reset,
+    updateDimensions: updateDimensions
+  };
+};
+// ));
+export default {
+  reset: viewport().reset,
+  updateDimensions: viewport().updateDimensions
+};
+
