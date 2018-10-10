@@ -10,3 +10,9 @@
 - [ ] ssr服务端渲染
 - [ ] 优化
 - [ ] More
+## 想要做的事
+- [ ] 文章与右侧目录联动(viewport.js)
+- [ ] One Dark Pro主题的代码高亮
+- [ ] mikutap
+- [ ] 页面背景星座图
+- [ ] More
