@@ -5,17 +5,19 @@
     :body-style="{ padding: '10px' }"
   >
     <img class="avatar" src="@/assets/img/Miku.gif" alt="">
-    <div class="anchor-btn-group">
-      <el-button
-        plain
-        v-for="section in sectionList"
-        :key="section.index"
-        :class="{ 'current-btn': section.label === currentSection }"
-        @click="handleBtnClick(section)"
-      >
-        {{ section.label }}
-      </el-button>
-    </div>
+    <el-collapse-transition>
+      <div class="anchor-btn-group" v-show="showBtnList">
+        <el-button
+          plain
+          v-for="section in sectionList"
+          :key="section.index"
+          :class="{ 'current-btn': section.label === currentSection }"
+          @click="handleBtnClick(section)"
+        >
+          {{ section.label }}
+        </el-button>
+      </div>
+    </el-collapse-transition>
     <el-button-group>
       <el-button plain icon="iconfont icon-github">Github</el-button>
       <el-button plain icon="iconfont icon-qq">QQ</el-button>
@@ -54,6 +56,7 @@ export default {
   },
   data() {
     return {
+      showBtnList: false
     };
   },
   components: {
@@ -67,9 +70,22 @@ export default {
       }
     }
   },
+  watch: {
+    'sectionList.length'(newVal) {
+      if (newVal) {
+        this.$nextTick(() => {
+          this.showBtnList = true;
+        });
+      } else {
+        this.$nextTick(() => {
+          this.showBtnList = false;
+        });
+      }
+    }
+  },
   methods: {
     handleBtnClick(btn) {
-      this.$emit('btn-click');
+      this.$emit('btn-click', btn);
       console.log('btnClick: ', btn);
     },
   },

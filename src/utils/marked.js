@@ -14,6 +14,8 @@ mdRenderer.heading = (text, level) => {
     headerCount++;
   } else {
     renderedHTML = `<h${level} class="header_${level}">${text}</h${level}>`;
+    // 遇到文章标题时重置小标题计数
+    headerCount = 0;
   }
   return renderedHTML;
 }
