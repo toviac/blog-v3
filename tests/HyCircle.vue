@@ -12,30 +12,30 @@ export default {
     // 传进来的值,100为最大, 0最低
     value: {
       type: [Number, String],
-      default: 90
+      default: 90,
     },
     // 圆>半径<
     radius: {
       type: Number,
-      default: 75
+      default: 75,
     },
     // 是否加载
     loading: {
       type: Boolean,
-      default: false
+      default: false,
     },
     // 中间文字
     content: {
       type: String,
-      default: 'text'
+      default: 'text',
     },
     // 加载时文字
     loadingContent: {
       type: String,
-      default: '加载中'
-    }
+      default: '加载中',
+    },
   },
-  data () {
+  data() {
     return {
       // true: 逆时针, false: 顺时针
       flag: false,
@@ -47,7 +47,7 @@ export default {
       loadingColor: '#F98700',
       COLOR_GRAY: '#E4E4E4',
       COLOR_GREEN: '#67C23A',
-      COLOR_BASE: '#F98700'
+      COLOR_BASE: '#F98700',
     };
   },
   components: {
@@ -55,12 +55,12 @@ export default {
   computed: {
     endAngle() {
       // 弧度
-      let r = -Math.PI / 2 + Math.PI * 2 * (this.value / 100);
-      if (r >= 3 / 2 * Math.PI) {
-        return 3 / 2 * Math.PI;
+      const r = (-Math.PI / 2) + (Math.PI * 2 * (this.value / 100));
+      if (r >= (3 / 2) * Math.PI) {
+        return (3 / 2) * Math.PI;
       }
       return r;
-    }
+    },
   },
   watch: {
     value() {
@@ -68,7 +68,7 @@ export default {
     },
     loading() {
       this.init();
-    }
+    },
   },
   methods: {
     init() {
@@ -87,7 +87,9 @@ export default {
       }
     },
     drawBgCanvas() {
-      const { $refs, radius, loading, loadingContent, content, COLOR_GRAY, arc, text } = this;
+      const {
+        $refs, radius, loading, loadingContent, content, COLOR_GRAY, arc, text,
+      } = this;
       this.bgCanvas = $refs.bgCanvas;
       this.bgContext = this.bgCanvas.getContext('2d');
       this.bgCanvas.width = radius * 2;
@@ -139,7 +141,9 @@ export default {
     },
     // 文字
     text(context, content) {
-      const { radius, endAngle, loading, COLOR_GREEN, COLOR_BASE } = this;
+      const {
+        radius, endAngle, loading, COLOR_GREEN, COLOR_BASE,
+      } = this;
       context.textAlign = 'center';
       context.textBaseline = 'middle';
       context.font = 'bold 20px Regular';
@@ -156,17 +160,19 @@ export default {
       if (this.loading) {
         return;
       }
-      const { endAngle, radius, COLOR_GREEN, COLOR_BASE, arc } = this;
-      let stepAngle = Math.PI / 25;
-      let startAngle = -Math.PI / 2;
+      const {
+        endAngle, radius, COLOR_GREEN, COLOR_BASE, arc,
+      } = this;
+      const stepAngle = Math.PI / 25;
+      const startAngle = -Math.PI / 2;
       if (this.tmpAngle >= endAngle) {
         return;
-      } else {
-        this.context.clearRect(0, 0, radius * 2, radius * 2);
-        this.tmpAngle += stepAngle;
-        let color = endAngle >= Math.PI * 1 / 2 ? COLOR_GREEN : COLOR_BASE;
-        arc(this.context, color, startAngle, this.tmpAngle, 1);
       }
+      this.context.clearRect(0, 0, radius * 2, radius * 2);
+      this.tmpAngle += stepAngle;
+      const color = endAngle >= Math.PI * 1 / 2 ? COLOR_GREEN : COLOR_BASE;
+      arc(this.context, color, startAngle, this.tmpAngle, 1);
+
       requestAnimationFrame(this.render);
     },
     // loading 渲染
@@ -176,23 +182,23 @@ export default {
       if (!this.loading) {
         return;
       }
-      let stepAngle = Math.PI / 25;
-      let startAngle = -Math.PI / 2;
+      const stepAngle = Math.PI / 25;
+      const startAngle = -Math.PI / 2;
       this.tmpAngle += stepAngle;
       // 已绘制一整个圆
-      if (this.tmpAngle > -Math.PI / 2 + Math.PI * 2) {
-        this.tmpAngle = -Math.PI / 2 + Math.PI / 1000;
+      if (this.tmpAngle > (-Math.PI / 2) + (Math.PI * 2)) {
+        this.tmpAngle = (-Math.PI / 2) + (Math.PI / 1000);
         this.flag = !this.flag;
       }
       arc(this.context, loadingColor, startAngle, this.tmpAngle, 1, this.flag);
       requestAnimationFrame(this.renderLoading);
-    }
+    },
   },
   mounted() {
     this.$nextTick(() => {
       this.init();
     });
-  }
+  },
 };
 </script>
 

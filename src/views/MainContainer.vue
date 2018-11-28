@@ -23,7 +23,11 @@
           </transition>
         </el-col>
         <el-col :span="5" class="side-bar-outer">
-          <side-bar :sectionList="sectionList" :currentSection="currentSection" @btn-click="sideBarClick"></side-bar>
+          <side-bar
+            :sectionList="sectionList"
+            :currentSection="currentSection"
+            @btn-click="sideBarClick">
+          </side-bar>
           <!-- 滚动到顶部按钮 -->
           <transition name="el-fade-in-linear">
             <div
@@ -46,7 +50,7 @@ import SideBar from '@/views/layout/SideBar.vue';
 import ContentWrapper from '@/views/layout/ContentWrapper.vue';
 import ArticleList from '@/views/layout/ArticleList.vue';
 import http from '@/common/http';
-import viewport from '@/plugins/viewport.js';
+import viewport from '@/plugins/viewport';
 
 export default {
   name: 'MainContainer',
@@ -64,7 +68,7 @@ export default {
       sectionNodeGroup: [],
       currentSection: '',
       sectionPercent: 0,
-      sectionList: []
+      sectionList: [],
     };
   },
   components: {
@@ -107,7 +111,7 @@ export default {
       const targetScroll = document.getElementById('scroll-box').children[0];
       targetScroll.addEventListener('scroll', this.handleScroll);
       // viewport.js 设置滚动区域
-      let ele = document.getElementsByClassName('el-scrollbar__wrap')[0];
+      const ele = document.getElementsByClassName('el-scrollbar__wrap')[0];
       ele.classList.add('viewport');
     });
     this.getList();
@@ -128,7 +132,7 @@ export default {
         this.sectionList.push({
           label: this.sectionNodeGroup[i].innerHTML,
           percent: Math.max(0, Math.min(1, this.sectionNodeGroup[i].viewportTopLocation)),
-          id: this.sectionNodeGroup[i].id
+          id: this.sectionNodeGroup[i].id,
         });
       }
       console.log('sectionList: ', this.sectionList);
@@ -138,7 +142,7 @@ export default {
     },
     scrollListener() {
       if (!this.sectionNodeGroup.length) return;
-      let myViewPort = document.getElementsByClassName('viewport')[0];
+      const myViewPort = document.getElementsByClassName('viewport')[0];
       this.currentSection = myViewPort.currentSection.innerHTML;
       this.sectionPercent = Math.max(0, Math.min(1, this.currentSection.viewportTopLocation));
     },
@@ -181,13 +185,13 @@ export default {
       cancelAnimationFrame(timer);
       timer = requestAnimationFrame(function fn() {
         // 判断是否滚到底部
-        let hasScrolledToBottom = el.scrollHeight - el.scrollTop === el.clientHeight;
+        const hasScrolledToBottom = el.scrollHeight - el.scrollTop === el.clientHeight;
         if (Math.abs(el.scrollTop - targetPos) < step) {
           cancelAnimationFrame(timer);
         } else if (el.scrollTop > targetPos) {
           el.scrollTop -= step;
           timer = requestAnimationFrame(fn);
-        } else if (el.scrollTop < targetPos){
+        } else if (el.scrollTop < targetPos) {
           if (hasScrolledToBottom) return;
           el.scrollTop += step;
           timer = requestAnimationFrame(fn);

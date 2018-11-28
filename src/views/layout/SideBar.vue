@@ -32,7 +32,7 @@ export default {
   props: {
     currentSection: {
       type: String,
-      default: ''
+      default: '',
     },
     sectionList: {
       type: Array,
@@ -56,7 +56,7 @@ export default {
   },
   data() {
     return {
-      showBtnList: false
+      showBtnList: false,
     };
   },
   components: {
@@ -65,14 +65,13 @@ export default {
     maxHeight() {
       if (this.$route.path === '/') {
         return 450;
-      } else {
-        return 1500;
       }
-    }
+      return 1500;
+    },
   },
   watch: {
-    'sectionList.length'(newVal) {
-      if (newVal) {
+    sectionList(newVal) {
+      if (newVal.length) {
         this.$nextTick(() => {
           this.showBtnList = true;
         });
@@ -81,7 +80,7 @@ export default {
           this.showBtnList = false;
         });
       }
-    }
+    },
   },
   methods: {
     handleBtnClick(btn) {
