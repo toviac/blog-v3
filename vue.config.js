@@ -63,7 +63,7 @@ module.exports = {
     https: false,
     hotOnly: false,
     // 设置代理, 监听后台端口
-    proxy: 'http://localhost:7001',
+    proxy: 'http://127.0.0.1:7001',
     before: app => {}
   },
   // 第三方插件配置
