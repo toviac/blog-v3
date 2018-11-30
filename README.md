@@ -1,5 +1,6 @@
 # blog
-基于vue-cli v3.0与elementUI的个人小网站第三版 [前端部分]
+基于vue-cli v3.0与elementUI的个人小网站第三版 [前端部分]  
+后端部分: https://github.com/coolucifer/eggserver
 ## Todo
 - [x] vue前端
 - [x] egg.js后端
