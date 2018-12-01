@@ -16,6 +16,7 @@
                 </router-view>
               </transition>
             </div>
+            <!-- 小练习 -->
             <div class="list-item" v-else key="practice">
               <article-list :list="fileList" @title-click="handleTitleClick">
               </article-list>
@@ -202,7 +203,7 @@ export default {
     },
     // 获取服务器文章md列表
     getList() {
-      const url = '/filelist';
+      const url = '/api/post/list';
       http.get(url, {})
         .then((data) => {
           this.fileList = data.list;
@@ -210,7 +211,7 @@ export default {
         .catch();
     },
     handleTitleClick(item) {
-      this.$router.push(`${this.activeTab}/${item.createDate}.md`);
+      this.$router.push(`${this.activeTab}/${item.id}`);
     },
   },
 };

@@ -16,7 +16,11 @@ export default new Router({
         //   component: () => import('@/views/layout/ArticleList.vue'),
         // },
         {
-          path: '/blog/:fileName',
+          path: '/blog/edit/:postId?',
+          component: () => import('@/views/CreatePage.vue'),
+        },
+        {
+          path: '/blog/:postId',
           component: () => import('@/views/layout/ContentWrapper.vue'),
         },
       ],

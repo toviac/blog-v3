@@ -9,11 +9,11 @@ const responseHandler = response => new Promise((resolve, reject) => {
   }
 });
 
-const formatUrl = (url) => {
-  url = url.toString();
+const formatUrl = (arg) => {
+  const url = arg.toString();
   if (/\/api\//.test(url.substring(0, 5))) return url;
-  return '/api/' + (url.charAt(0) === '/' ? '' : url.charAt(0)) + url.substring(1);
-}
+  return `/api/${url.charAt(0) === '/' ? '' : url.charAt(0)}${url.substring(1)}`;
+};
 
 export default {
   async get(url, param) {

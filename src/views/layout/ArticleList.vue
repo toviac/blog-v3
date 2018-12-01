@@ -7,7 +7,7 @@
       :key="item.index">
       <div class="header">
         <div class="title" @click="titleClick(item)">{{ item.title }}</div>
-        <div class="create-date">{{ item.createDate }}</div>
+        <div class="create-date">{{ item.createTime | getDate }}</div>
       </div>
     </el-card>
   </div>
@@ -23,6 +23,11 @@ export default {
       default() {
         return [];
       },
+    },
+  },
+  filters: {
+    getDate(val) {
+      return val.slice(0, 10);
     },
   },
   data() {

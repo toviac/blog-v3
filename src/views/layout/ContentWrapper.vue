@@ -42,11 +42,11 @@ export default {
   },
   methods: {
     queryContent() {
-      const url = '/file';
-      const fName = this.$route.params.fileName;
-      http.get(url, { fileName: fName })
+      const url = '/api/post';
+      const { postId } = this.$route.params;
+      http.get(url, { id: postId })
         .then((data) => {
-          this.mdContent = data.content;
+          this.mdContent = data.post.content;
           this.$nextTick(() => {
             this.$emit('articleReady');
           });
