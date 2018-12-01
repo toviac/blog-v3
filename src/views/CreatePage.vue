@@ -50,7 +50,7 @@ export default {
         .then(data => {
           this.showMessage('创建成功!');
           this.value = '';
-          // this.$router.push(`/blog/${data.id}`);
+          this.$router.push(`/blog/${data.id}`);
         })
         .catch();
     },
