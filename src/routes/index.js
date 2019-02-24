@@ -11,10 +11,6 @@ export default new Router({
       name: 'home',
       component: Home,
       children: [
-        // {
-        //   path: '',
-        //   component: () => import('@/views/layout/ArticleList.vue'),
-        // },
         {
           path: '/blog/edit/:postId?',
           component: () => import('@/views/CreatePage.vue'),
@@ -23,7 +19,15 @@ export default new Router({
           path: '/blog/:postId',
           component: () => import('@/views/layout/ContentWrapper.vue'),
         },
+        {
+          path: '/practice/:practiceName',
+          component: () => import('@/views/practices/Index.vue'),
+        },
       ],
+    },
+    {
+      path: '/test/card-btn',
+      component: () => import('@/tests/CardBtn.vue'),
     },
     // {
     //   path: '/about',
