@@ -18,8 +18,10 @@
             </div>
             <!-- 小练习 -->
             <div class="list-item" v-else key="practice">
-              <article-list :list="fileList" @title-click="handleTitleClick">
+              <article-list v-if="showFileList" :list="practiceList" @title-click="handleTitleClick">
               </article-list>
+              <router-view v-else key="view" ref="view" @articleReady="articleReady">
+              </router-view>
             </div>
           </transition>
         </el-col>
@@ -64,6 +66,16 @@ export default {
       wheelTop: 0,
       // 文章列表
       fileList: [],
+      // 练习列表
+      practiceList: [
+        {
+          author: 'admin',
+          createTime: '2019-02-24',
+          id: 'repeater',
+          title: '人类的本质',
+          updateTime: '2019-02-24',
+        },
+      ],
       // 文章是否加载完毕
       isReady: false,
       sectionNodeGroup: [],
@@ -211,7 +223,7 @@ export default {
         .catch();
     },
     handleTitleClick(item) {
-      this.$router.push(`${this.activeTab}/${item.id}`);
+      this.$router.push(`/${this.activeTab}/${item.id}`);
     },
   },
 };

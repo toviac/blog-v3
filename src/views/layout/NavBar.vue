@@ -44,7 +44,11 @@ export default {
   },
   components: {},
   computed: {},
-  mounted() {},
+  mounted() {
+    if (/practice/.test(this.$route.path)) {
+      this.activeIndex = 'practice';
+    }
+  },
   methods: {
     handleSelect(key) {
       this.activeIndex = key;
