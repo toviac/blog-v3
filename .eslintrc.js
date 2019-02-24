@@ -18,6 +18,7 @@ module.exports = {
       process.env.NODE_ENV === 'production' ? 'error' : 'off',
       'as-needed',
     ],
+    'max-len': ['warn', 200],
   },
   parserOptions: {
     parser: 'babel-eslint',
