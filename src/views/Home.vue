@@ -29,7 +29,7 @@ export default {
     return {
       showCover: false,
       bgImgStyle: {
-        'background-image': 'url(69646886_p0.png)',
+        'background-image': 'url(63740442_p0.png)',
       },
     };
   },
