@@ -16,7 +16,8 @@ import './registerServiceWorker';
 // socket.io 引入
 Vue.use(new VueSocketio({
   debug: true,
-  connection: 'http://127.0.0.1:7001',
+  // connection: 'https://www.vici.dev',
+  connection: window.location.origin,
   vuex: {
     store,
     // Prefix for emitting server side vuex actions

@@ -19,9 +19,15 @@
       </div>
     </el-collapse-transition>
     <el-button-group>
-      <el-button plain icon="iconfont icon-github">Github</el-button>
-      <el-button plain icon="iconfont icon-qq">QQ</el-button>
-      <el-button plain icon="iconfont icon-mail">Mailto</el-button>
+      <a href="https://github.com/coolucifer" target="_blank">
+        <el-button plain icon="iconfont icon-github">Github</el-button>
+      </a>
+      <a href="http://wpa.qq.com/msgrd?v=3&uin=1045606768&site=qq&menu=yes" targe="_blank">
+        <el-button plain icon="iconfont icon-qq">QQ</el-button>
+      </a>
+      <a href="mailto:me@doco.dev">
+        <el-button plain icon="iconfont icon-mail">Mailto</el-button>
+      </a>
     </el-button-group>
   </el-card>
 </template>
@@ -37,20 +43,7 @@ export default {
     sectionList: {
       type: Array,
       default() {
-        return [
-          {
-            label: '导航按钮A',
-          },
-          {
-            label: '导航按钮B',
-          },
-          {
-            label: '导航按钮C',
-          },
-          {
-            label: '导航按钮D',
-          },
-        ];
+        return [];
       },
     },
   },
@@ -120,8 +113,22 @@ export default {
   }
   .el-button-group {
     display: flex;
-    .el-button {
+    a {
       flex-grow: 1;
+      display: flex;
+      text-decoration: none;
+      .el-button {
+        flex-grow: 1;
+        border-radius: 0;
+      }
+      &:first-child > .el-button {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+      &:last-child > .el-button {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
     }
   }
 }
