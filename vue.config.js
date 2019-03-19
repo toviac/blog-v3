@@ -72,7 +72,8 @@ module.exports = {
     https: false,
     hotOnly: false,
     // 设置代理, 监听后台端口
-    proxy: 'http://127.0.0.1:7001',
+    // proxy: 'http://127.0.0.1:7001',
+    proxy: 'https://www.doco.dev',
     before: app => {}
   },
   // 第三方插件配置
