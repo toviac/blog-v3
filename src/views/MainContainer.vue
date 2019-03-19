@@ -75,6 +75,13 @@ export default {
           title: '人类的本质',
           updateTime: '2019-02-24',
         },
+        {
+          author: 'admin',
+          createTime: '2018-01-28',
+          id: 'colorfulballs',
+          title: '绚丽小球',
+          updateTime: '2019-01-28',
+        },
       ],
       // 文章是否加载完毕
       isReady: false,
