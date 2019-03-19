@@ -10,7 +10,9 @@ import http from '@/common/http';
 
 export default {
   data() {
+    const postId = this.$route.params.postId || '';
     return {
+      postId,
       value: '',
     };
   },
@@ -22,8 +24,22 @@ export default {
       return getTitleReg.exec(this.value)[1] || '';
     },
   },
+  created() {
+    if (this.postId) {
+      this.query();
+    }
+  },
   mounted() {},
   methods: {
+    query() {
+      const url = '/api/post';
+      const { postId } = this;
+      http.get(url, { id: postId })
+        .then((data) => {
+          this.value = data.post.content;
+        })
+        .catch();
+    },
     submit() {
       if (!this.value) {
         this.$message({
@@ -46,13 +62,27 @@ export default {
         author: 'admin',
         content: this.value,
       };
-      http.post('/api/post', params)
-        .then(data => {
-          this.showMessage('创建成功!');
-          this.value = '';
-          this.$router.push(`/blog/${data.id}`);
-        })
-        .catch();
+      if (!this.postId) {
+        http.post('/api/post', params)
+          .then(data => {
+            this.showMessage('创建成功!');
+            this.value = '';
+            this.$router.push(`/blog/${data.id}`);
+          })
+          .catch(err => {
+            this.showMessage(err.message, 'warning');
+          });
+      } else {
+        http.put('/api/post', Object.assign({}, params, { _id: this.postId }))
+          .then(() => {
+            this.showMessage('更新成功!');
+            this.value = '';
+            this.$router.push(`/blog/${this.postId}`);
+          })
+          .catch(err => {
+            this.showMessage(err.message, 'warning');
+          });
+      }
     },
     showMessage(msg, type = 'success') {
       if (!msg) return;
