@@ -1,7 +1,13 @@
 <!-- 创建文章页面 -->
 <template>
   <div class="create-page">
-    <mavon-editor v-model="value" codeStyle="atom-one-dark" @save="submit"></mavon-editor>
+    <mavon-editor
+      ref="editor"
+      v-model="value"
+      codeStyle="atom-one-dark"
+      @imgAdd="imgAddHandler"
+      @imgDel="imgDelHandler"
+      @save="submit"></mavon-editor>
   </div>
 </template>
 
@@ -39,6 +45,19 @@ export default {
           this.value = data.post.content;
         })
         .catch();
+    },
+    // 添加/删除图片
+    imgAddHandler(pos, file) {
+      const param = new FormData();
+      param.append('data', file);
+      http.post('/api/upload', param)
+        .then(data => {
+          this.$refs.editor.$img2Url(pos, data.url);
+        })
+        .catch();
+    },
+    imgDelHandler(file, pos) {
+      console.log('del: ', file, pos);
     },
     submit() {
       if (!this.value) {
