@@ -29,6 +29,11 @@ export default new Router({
       path: '/test/card-btn',
       component: () => import('@/tests/CardBtn.vue'),
     },
+    // 404重定向
+    {
+      path: '*',
+      redirect: '/',
+    },
     // {
     //   path: '/about',
     //   name: 'about',
