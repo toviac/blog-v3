@@ -57,7 +57,7 @@ export default {
 };
 
 </script>
-<style lang='scss' scoped>
+<style lang='scss'>
 .content-wrapper {
   width: 100%;
   padding: 10px;
@@ -69,6 +69,10 @@ export default {
   // 代码样式
   code {
     font-family: 'Consolas';
+  }
+  img,
+  video {
+    max-width: 100%;
   }
 }
 </style>
