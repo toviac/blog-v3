@@ -70,6 +70,13 @@ export default {
       practiceList: [
         {
           author: 'admin',
+          createTime: '2019-03-31',
+          id: 'tree',
+          title: 'Canvas绘制树形图',
+          updateTime: '2019-03-31',
+        },
+        {
+          author: 'admin',
           createTime: '2019-02-24',
           id: 'repeater',
           title: '人类的本质',
