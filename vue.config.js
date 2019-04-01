@@ -28,6 +28,10 @@ module.exports = {
         args[0].favicon = 'public/favicon.png';
         return args;
       })
+    // webpack-bundle-analyzer
+    config
+      .plugin('webpack-bundle-analyzer')
+      .use(require('webpack-bundle-analyzer').BundleAnalyzerPlugin)
   },
   configureWebpack: () => {},
   // vue-loader 配置项
