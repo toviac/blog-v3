@@ -4,9 +4,10 @@
       shadow="hover"
       class="article-list-item"
       v-for="item in list"
-      :key="item.index">
+      :key="item.index"
+      @click.native="cardClick(item)">
       <div class="header">
-        <div class="title" @click="titleClick(item)">{{ item.title }}</div>
+        <div class="title">{{ item.title }}</div>
         <div class="create-date">{{ item.createTime | getDate }}</div>
       </div>
     </el-card>
@@ -36,7 +37,7 @@ export default {
   components: {
   },
   methods: {
-    titleClick(item) {
+    cardClick(item) {
       this.$emit('title-click', item);
     },
   },
@@ -61,6 +62,7 @@ export default {
     border-radius: 4px;
     background-color: #ffffff;
     // box-shadow: 0 2px 12px 0 rgba(0,0,0,.1);
+    cursor: pointer;
     .header {
       display: flex;
       justify-content: space-between;
@@ -69,7 +71,6 @@ export default {
     .title {
       color: #409EFF;
       font-size: 20px;
-      cursor: pointer;
       &:hover {
         color: #66b1ff;
       }
