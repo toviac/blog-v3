@@ -3,6 +3,12 @@
   <div class="content-wrapper">
     <!-- <md-editor></md-editor> -->
     <div v-html="markdownHTML"></div>
+    <el-dialog
+      :visible.sync="showImgPreview"
+      top="0"
+      width="80%">
+      <img :src="imgSrc" alt="">
+    </el-dialog>
   </div>
 </template>
 
@@ -22,6 +28,8 @@ export default {
   data() {
     return {
       mdContent: '',
+      imgSrc: '',
+      showImgPreview: false,
     };
   },
   components: {
@@ -40,6 +48,12 @@ export default {
   mounted() {
     this.queryContent();
   },
+  beforeDestroy() {
+    const imgGroup = document.querySelectorAll('.content-wrapper img');
+    imgGroup.forEach(img => {
+      img.removeEventListener('click', this.imgPreview);
+    });
+  },
   methods: {
     queryContent() {
       const url = '/api/post';
@@ -48,10 +62,24 @@ export default {
         .then((data) => {
           this.mdContent = data.post.content;
           this.$nextTick(() => {
+            this.handleImgClick();
             this.$emit('articleReady');
           });
         })
         .catch();
+    },
+    // 获取图片点击事件
+    handleImgClick() {
+      const imgGroup = document.querySelectorAll('.content-wrapper img');
+      imgGroup.forEach(img => {
+        img.addEventListener('click', this.imgPreview);
+      });
+    },
+    imgPreview(e) {
+      this.imgSrc = e.target.src.replace('https://www.doco.dev', '');
+      if (this.imgSrc) {
+        this.showImgPreview = true;
+      }
     },
   },
 };
@@ -73,6 +101,28 @@ export default {
   img,
   video {
     max-width: 100%;
+  }
+  .el-dialog__wrapper {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .el-dialog {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      height: 90%;
+      .el-dialog__body {
+        flex-grow: 1;
+        // 解决子元素溢出
+        overflow: hidden;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
   }
 }
 </style>
