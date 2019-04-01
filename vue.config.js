@@ -3,7 +3,7 @@ module.exports = {
   // 基本路径
   publicPath: '/',
   // 输出文件目录
-  outputDir: 'dist',
+  outputDir: 'webapp',
   // eslint-loader 是否在保存的时候检查
   lintOnSave: true,
   // use the full build with in-browser compiler?
@@ -63,6 +63,12 @@ module.exports = {
       maskIcon: 'img/favicon/safari-pinned-tab.svg',
       msTileImage: 'img/favicon/msapplication-icon-144x144.png'
     },
+    // // configure the workbox plugin
+    // workboxPluginMode: 'InjectManifest',
+    // workboxOptions: {
+    //   // swSrc is required in InjectManifest mode.
+    //   swSrc: 'public/service-worker.js',
+    // }
   },
   // webpack-dev-server 相关配置
   devServer: {
