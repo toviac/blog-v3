@@ -104,6 +104,34 @@ export default {
     margin: 0 auto;
     max-width: 100%;
   }
+  table {
+    display: block;
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 16px;
+    overflow: auto;
+    border-spacing: 0;
+    border-collapse: collapse;
+    th {
+      font-weight: 600;
+    }
+
+    th,
+    td {
+      padding: 6px 13px;
+      border: 1px solid #dfe2e5;
+    }
+
+    tr {
+      background-color: #fff;
+      border-top: 1px solid #c6cbd1;
+    }
+
+    tr:nth-child(2n) {
+      background-color: #f6f8fa;
+    }
+  }
+
   .el-dialog__wrapper {
     height: 100vh;
     display: flex;
