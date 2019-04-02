@@ -12,7 +12,7 @@
       </el-form>
       <div class="logs">
         聊天记录:
-        <div v-for="(item, index) in sendList" :key="index">{{ item }}</div>
+        <div v-for="(item, index) in msgList" :key="index">{{ item.from }}: {{ item.msg }}</div>
       </div>
     </div>
   </div>
@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       sendMsg: '',
-      sendList: [],
+      msgList: [],
     };
   },
   components: {},
@@ -40,6 +40,11 @@ export default {
     },
     reply(msg) {
       console.log('reply: ', msg);
+      this.msgList.push({
+        from: 'server',
+        to: 'me',
+        msg,
+      });
     },
   },
   watch: {},
@@ -55,7 +60,11 @@ export default {
       }
       this.$socket.emit('message', this.sendMsg);
       console.log('form submit');
-      this.sendList.push(this.sendMsg);
+      this.msgList.push({
+        from: 'me',
+        to: 'server',
+        msg: this.sendMsg,
+      });
       this.sendMsg = '';
     },
   },
