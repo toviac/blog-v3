@@ -33,9 +33,6 @@ Vue.config.productionTip = false;
 Vue.use(mavonEditor);
 Vue.use(ElementUI);
 
-
-console.log('markdown-it: ', mavonEditor.markdownIt);
-
 new Vue({
   router,
   store,
