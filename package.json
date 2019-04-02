@@ -16,7 +16,7 @@
     "eslint": "^5.16.0",
     "highlight.js": "^9.12.0",
     "marked": "^0.6.1",
-    "mavon-editor": "^2.6.17",
+    "mavon-editor": "^2.7.3",
     "node": "^8.11.4",
     "register-service-worker": "^1.5.2",
     "socket.io": "^2.2.0",
